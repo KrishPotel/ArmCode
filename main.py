@@ -15,7 +15,8 @@ def set_angle(angle):
 
 try:
     while True:
-        set_angle(90)
+        k = int(input())
+        set_angle(k)
 
 except KeyboardInterrupt:
     pass
