@@ -4,7 +4,7 @@ import time
 GIPO.setmode(GIPO.BCM)
 GIPO.setup(14, GIPO.OUT)
 
-pwm = GIPO.PWN(17,50)
+pwm = GIPO.PWM(17,50)
 pwm.start()
 
 def set_angle(angle):
