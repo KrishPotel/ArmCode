@@ -16,7 +16,7 @@ def setAngle(angle):
 
 try:
     while True:
-        angle = int(input("Enter servo angle (0–180): "))
+        angle = int(input("Enter servo angle (0-180): "))
         setAngle(angle)
 
 except KeyboardInterrupt:
