@@ -1,25 +1,20 @@
-import RPi.GPIO as GIPO
+import pigpio
 import time
 
-GIPO.setmode(GIPO.BCM)
-GIPO.setup(14, GIPO.OUT)
+pi = pigpio.pi()
 
-pwm = GIPO.PWM(14,50)
-pwm.start(0)
-
-def set_angle(angle):
-    duty = (0.05 * angle) + 2.5
-    pwm.ChangeDutyCycle(duty)
-    time.sleep(0.5);
-    pwm.ChangeDutyCycle(0);
+def setAngle(angle,SERVO_PIN):
+    plusewidth = 500 + (angle / 180.0) * 2000
+    pi.set_servo_pulsewidth(SERVO_PIN,plusewidth)
 
 try:
     while True:
-        k = int(input())
-        set_angle(k)
+        angle = int(input("Enter Servo 1 angle"))
+        setAngle(angle,15)
 
 except KeyboardInterrupt:
     pass
+
 finally:
-    pwm.stop()
-    GIPO.cleanup()
+    pi.set_servo_pulsewidth(15,0)
+    pi.stop()
