@@ -11,8 +11,8 @@ SERVO_PIN = 14
 SERVO_PIN_SMALL = 15
 SERVO_PIN_GRIPPER = 18
 
-WristOffset = 0
-ArmOffset = 0
+WristOffset = -9
+ArmOffset = -4
 
 def setAngleBIG(angle):
     angle = max(30, min(150, angle+ArmOffset))  # clamp
@@ -37,14 +37,14 @@ def setGripperOpenOrClose(open: bool):
 try:
     while True:
 
-        angle2 = int(input("Enter servo angle (0-180): "))
+        angle2 = int(input("Enter wrist angle (0-180): "))
         setAngleSmall(angle2)
 
-        angle = int(input("Enter wrist angle (0-180): "))
+        angle = int(input("Enter shoulder angle (0-180): "))
         setAngleBIG(angle)
 
         openOrClose = int(input("Enter 1 for open and 2 for close"))
-        setGripperOpenOrClose(1 if openOrClose == 1 else 0)
+        setGripperOpenOrClose(True if openOrClose == 1 else False)
 
 
 except KeyboardInterrupt:
