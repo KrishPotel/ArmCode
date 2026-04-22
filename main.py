@@ -12,7 +12,7 @@ SERVO_PIN_SMALL = 15
 SERVO_PIN_GRIPPER = 18
 
 WristOffset = 5
-ArmOffset = 5
+ArmOffset = -5
 
 def setAngleBIG(angle):
     angle = max(30, min(150, angle+ArmOffset))  # clamp
