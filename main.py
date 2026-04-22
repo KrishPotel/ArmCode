@@ -22,14 +22,14 @@ def setAngleSmall(angle):
     pi.set_servo_pulsewidth(SERVO_PIN_SMALL, pulsewidth)
 
 def setGripperOpenOrClose(open: bool):
-    if(open):
+    if open:
         angle = 0
-        pulsewidth = 500 + (angle / 180.0) * 2000
-        pi.set_servo_pulsewidth(SERVO_PIN_SMALL, pulsewidth)
     else:
         angle = 90
-        pulsewidth = 500 + (angle / 180.0) * 2000
-        pi.set_servo_pulsewidth(SERVO_PIN_GRIPPER, pulsewidth)
+
+    pulsewidth = 500 + (angle / 180.0) * 1900
+    pi.set_servo_pulsewidth(SERVO_PIN_GRIPPER, pulsewidth)
+
 
 try:
     while True:
